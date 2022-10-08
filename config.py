@@ -28,6 +28,6 @@ def readConfig():
         "hashed_password": str.format(userinfo["hashed_password"]),
     }
 
-# writeConfig()
-# result = readConfig()
-# print(result)
+writeConfig()
+result = readConfig()
+print(result)
