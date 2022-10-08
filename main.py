@@ -6,7 +6,7 @@ import records
 
 def checkConfig():
     account.createAccountDb()
-    records.createAccountDb()
+    records.createMedicalRecordsDb()
 
     file_exists = os.path.exists("config.ini")
     if(file_exists):

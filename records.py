@@ -1,8 +1,8 @@
 import os.path
 import csv
 
-
-def createAccountDb(f='medical_records.csv'):
+# create medical records database
+def createMedicalRecordsDb(f='medical_records.csv'):
     file_exists = os.path.exists(f)
 
     if (file_exists == False):
@@ -18,6 +18,7 @@ def createAccountDb(f='medical_records.csv'):
         print("Empty File Created Successfully")
 
 
+# add new medical record entry
 def addNewRecord(date,
                  patient_name,
                  age,
@@ -25,7 +26,6 @@ def addNewRecord(date,
                  sickness_details,
                  drug_prescriptions,
                  lab_test_prescriptions):
-
     filename = 'medical_records.csv'
     fieldnames = ["date",
                   "patient_name",
@@ -48,6 +48,8 @@ def addNewRecord(date,
         writer = csv.DictWriter(record_file, fieldnames=fieldnames)
         writer.writerow(dict)
 
+
+# Returns list of Patient Records using a Ward No
 def getPatientRecordbyWardNo(ward_no):
     filename = 'medical_records.csv'
     with open(filename, 'r') as record_file:
@@ -61,6 +63,8 @@ def getPatientRecordbyWardNo(ward_no):
                 print("Drug Prescriptions: " + item[5])
                 print("Lab Test Prescriptions: " + item[6])
 
+
+# Returns list of lab prescriptions
 def getLabPrescriptions():
     filename = 'medical_records.csv'
     with open(filename, 'r') as record_file:
@@ -73,19 +77,18 @@ def getLabPrescriptions():
                 print("Age: " + item[2])
                 print("Lab Test Prescriptions: " + item[6])
 
+
+# Returns list of Patient Records by Patient name
 def getPatientRecordsbyPatientName(patientName):
     filename = 'medical_records.csv'
     with open(filename, 'r') as record_file:
         reader = csv.reader(record_file)
 
         for item in reader:
-            if(item[1] == patientName):
+            if (item[1] == patientName):
                 print("\nDate :" + item[0])
                 print("Age: " + item[2])
                 print("Ward No: " + item[3])
                 print("Sickness Details: " + item[4])
                 print("Drug Prescriptions: " + item[5])
                 print("Lab Test Prescriptions: " + item[6])
-
-# createAccountDb()
-# addNewRecord("2022-09-30", "Surath", 56, 32, "Fever with cough", "Panadol 4mg, Piriton 2mg", "Urine Test x1")
