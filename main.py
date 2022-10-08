@@ -117,9 +117,39 @@ def patientPriviledges(patientName):
     else:
         print("Thank you for using the system!")
 
+#add new user to the system and view all medical records functionality handling
+def adminPrivileges():
+    print("To add new user input 1, To view medical records input 2")
+    option = int(input("Select option: ").strip())
+
+    if option == 1:
+        username = input("Enter Username: ").strip()
+        password = input("Enter Password: ").strip()
+        user_type = input("Enter User Type (Hospital_Staff OR Patient): ").strip()
+        privilege_level = input("Enter Privilege level (0, 1, 2 ,OR 3): ").strip()
+        ward_no = input("Enter Ward No: ").strip()
+
+        if(user_type not in ["Hospital_Staff", "Patient"]):
+            print("Invalid user type!")
+        elif(privilege_level not in ["0", "1", "2", "3"]):
+            print("Invalid privilege level!")
+        elif((user_type == "Patient") and (privilege_level in ["1", "2", "3"])):
+            print("Invalid privilege level for a Patient!")
+        elif ((user_type == "Hospital_Staff") and (privilege_level == "0")):
+            print("Invalid privilege level for a Hospital staff member!")
+        else:
+            account.addNewAccount(username, password, user_type, privilege_level, ward_no)
+
+    elif option == 2:
+        records.getAllPAtientRecords()
+    else:
+        print("Thank you for using the system!")
+
 userDetails = logIn()
 if userDetails != None:
-    if userDetails['user_type'] == 'Hospital_Staff' and userDetails['privilege_level'] == '3':
+    if userDetails['user_type'] == 'Admin' and userDetails['privilege_level'] == '4':
+        adminPrivileges()
+    elif userDetails['user_type'] == 'Hospital_Staff' and userDetails['privilege_level'] == '3':
         doctorPriviledges(userDetails['ward_no'])
     elif userDetails['user_type'] == 'Hospital_Staff' and userDetails['privilege_level'] == '2':
         nursePriviledges(userDetails['ward_no'])

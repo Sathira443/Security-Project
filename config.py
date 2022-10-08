@@ -27,7 +27,7 @@ def readConfig():
         "user_name": str.format(userinfo["user_name"]),
         "hashed_password": str.format(userinfo["hashed_password"]),
     }
-
-writeConfig()
-result = readConfig()
-print(result)
+#
+# writeConfig()
+# result = readConfig()
+# print(result)

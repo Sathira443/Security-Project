@@ -13,11 +13,11 @@ def createAccountDb(f = 'account.csv'):
         print("Empty File Created Successfully")
 
 
-def addNewAccount(user_name, hashed_password, user_type, privilege_level, ward_no):
+def addNewAccount(user_name, password, user_type, privilege_level, ward_no):
     filename = 'account.csv'
     fieldnames = ["user_name", "hashed_password", "user_type", "privilege_level", "ward_no"]
 
-    hs_pass = hashlib.md5(hashed_password.encode('utf-8'))
+    hs_pass = hashlib.md5(password.encode('utf-8'))
     encoded = hs_pass.digest()
 
     dict = {'user_name': user_name,
@@ -43,3 +43,5 @@ def readItems():
             credentials[item[0]] = item[1:]
         credentials.pop("user_name")
         return  credentials
+
+# addNewAccount("Admin", "admin", "Admin", 4, "None")

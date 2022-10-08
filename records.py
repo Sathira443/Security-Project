@@ -92,3 +92,19 @@ def getPatientRecordsbyPatientName(patientName):
                 print("Sickness Details: " + item[4])
                 print("Drug Prescriptions: " + item[5])
                 print("Lab Test Prescriptions: " + item[6])
+
+#get all patient records
+def getAllPAtientRecords():
+    filename = 'medical_records.csv'
+    with open(filename, 'r') as record_file:
+        reader = csv.reader(record_file)
+
+        for item in reader:
+            if (item[6] != "lab_test_prescriptions"):
+                print("\nDate :" + item[0])
+                print("Patient Name: " + item[1])
+                print("Age: " + item[2])
+                print("Ward No: " + item[3])
+                print("Sickness Details: " + item[4])
+                print("Drug Prescriptions: " + item[5])
+                print("Lab Test Prescriptions: " + item[6])
