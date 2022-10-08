@@ -1,0 +1,6 @@
+date,patient_name,age,ward_no,sickness_details,drug_prescriptions,lab_test_prescriptions
+3/21/2022,Yasiru,24,31,Fever with Covid Symptoms,"Panadol 5mg, Cyanadol 2mg",Blood Test 3x day
+9/28/2022,Janum,25,32,Covid Symptoms,"Panadol 4mg, Panadene 2mg",Blood Test 2x day
+9/30/2022,Surath,56,32,Fever with cough,"Panadol 4mg, Piriton 2mg",Urine Test x1
+9/30/2022,Surath,56,32,Fever with cough,"Panadol 4mg, Piriton 2mg",Urine Test x1
+8/10/2022,Yasiru,24,35,Injured Leg,Mofin 4mg,None
