@@ -4,6 +4,7 @@ import config
 import account
 import records
 
+#check config file exist
 def checkConfig():
     account.createAccountDb()
     records.createMedicalRecordsDb()
@@ -11,10 +12,7 @@ def checkConfig():
     file_exists = os.path.exists("config.ini")
     if(file_exists):
         user_config_credentials = config.readConfig()
-        # print(user_config_credentials)
-
         all_credentials_dict = account.readItems()
-        # print(all_credentials_dict)
 
         userName = user_config_credentials["user_name"]
         hashedPassword = user_config_credentials["hashed_password"]
@@ -35,6 +33,7 @@ def checkConfig():
     else:
         return None
 
+#Log in functionality of the system
 def logIn():
     res = checkConfig()
     if res == None:
@@ -63,6 +62,7 @@ def logIn():
     else:
         return res
 
+# Adding new Medical Record and View medical records functions handling
 def doctorPriviledges(wardNo):
     print("To add new record input 1, To view medical records input 2")
     option = int(input("Select option: ").strip())
@@ -90,6 +90,7 @@ def doctorPriviledges(wardNo):
     else:
         print('Invalid Input')
 
+# View Patient Records by ward No handling
 def nursePriviledges(wardNo):
     print("Do you want to view patient records? (Y/N)")
     option = input("Select option: ").strip()
@@ -98,6 +99,7 @@ def nursePriviledges(wardNo):
     else:
         print("Thank you for using the system!")
 
+#view lab prescription records functionality handling
 def labPriviledges():
     print("Do you want to view patient lab prescriptions? (Y/N)")
     option = input("Select option: ").strip()
@@ -106,6 +108,7 @@ def labPriviledges():
     else:
         print("Thank you for using the system!")
 
+#View patient Records assigned to a specific patient functionality handling
 def patientPriviledges(patientName):
     print("Do you want to view medical records of yours? (Y/N)")
     option = input("Select option: ").strip()
@@ -113,7 +116,6 @@ def patientPriviledges(patientName):
         records.getPatientRecordsbyPatientName(patientName)
     else:
         print("Thank you for using the system!")
-
 
 userDetails = logIn()
 if userDetails != None:
