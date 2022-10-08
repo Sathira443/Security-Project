@@ -117,11 +117,11 @@ def patientPriviledges(patientName):
 
 userDetails = logIn()
 if userDetails != None:
-    if userDetails['user_type'] == 'Doctor' and userDetails['privilege_level'] == '3':
+    if userDetails['user_type'] == 'Hospital_Staff' and userDetails['privilege_level'] == '3':
         doctorPriviledges(userDetails['ward_no'])
-    elif userDetails['user_type'] == 'Nurse' and userDetails['privilege_level'] == '2':
+    elif userDetails['user_type'] == 'Hospital_Staff' and userDetails['privilege_level'] == '2':
         nursePriviledges(userDetails['ward_no'])
-    elif userDetails['user_type'] == 'Lab' and userDetails['privilege_level'] == '1':
+    elif userDetails['user_type'] == 'Hospital_Staff' and userDetails['privilege_level'] == '1':
         labPriviledges()
     elif userDetails['user_type'] == 'Patient' and userDetails['privilege_level'] == '0':
         patientPriviledges(userDetails['user_name'])

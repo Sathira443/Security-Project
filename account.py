@@ -43,9 +43,3 @@ def readItems():
             credentials[item[0]] = item[1:]
         credentials.pop("user_name")
         return  credentials
-# createAccountDb()
-# addNewAccount("Yasiru", "yasiru", "Patient", 0, 31)
-# addNewAccount("Sathira", "sathira", "Doctor", 3, 32)
-# addNewAccount("Sharukh", "sharukh", "Nurse", 2, 35)
-# addNewAccount("Vihan", "vihan", "Lab", 1, "None")
-# readItems()

@@ -21,15 +21,12 @@ def writeConfig():
 def readConfig():
     config_object.read("config.ini")
 
-    #Get the password
+    #Get the password and username stored in the config file
     userinfo = config_object["USERINFO"]
     return {
         "user_name": str.format(userinfo["user_name"]),
         "hashed_password": str.format(userinfo["hashed_password"]),
-        # "user_type": str.format(userinfo["user_type"]),
-        # "privilege_level": str.format(userinfo["privilege_level"]),
     }
-    # print("Field is {}".format(userinfo[variable_name]))
 
 # writeConfig()
 # result = readConfig()
