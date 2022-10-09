@@ -22,7 +22,7 @@ def checkConfig():
             priviledgeLevel = all_credentials_dict[userName][2]
             wardNo = all_credentials_dict[userName][3]
 
-            print("Welcome 1")
+            print("Welcome Again!")
             return {"user_name": userName,
                     "hashed_password": hashedPassword,
                     "user_type": userType,
@@ -139,6 +139,7 @@ def adminPrivileges():
             print("Invalid privilege level for a Hospital staff member!")
         else:
             account.addNewAccount(username, password, user_type, privilege_level, ward_no)
+            print("Account Successfully Added!")
 
     elif option == 2:
         records.getAllPAtientRecords()
