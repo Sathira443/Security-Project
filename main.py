@@ -12,7 +12,7 @@ def checkConfig():
     file_exists = os.path.exists("config.ini")
     if(file_exists):
         user_config_credentials = config.readConfig()
-        all_credentials_dict = account.readItems()
+        all_credentials_dict = account.readUserDetails()
 
         userName = user_config_credentials["user_name"]
         hashedPassword = user_config_credentials["hashed_password"]
@@ -43,7 +43,7 @@ def logIn():
         hs_pass = hashlib.md5(password.encode('utf-8'))
         encoded = hs_pass.digest()
 
-        all_credentials_dict = account.readItems()
+        all_credentials_dict = account.readUserDetails()
 
         if ((userName in all_credentials_dict) and (str(encoded) == all_credentials_dict[userName][0])):
             userType = all_credentials_dict[userName][1]
@@ -119,7 +119,7 @@ def patientPriviledges(patientName):
 
 #add new user to the system and view all medical records functionality handling
 def adminPrivileges():
-    print("To add new user input 1, To view medical records input 2")
+    print("To add new user input 1, To view medical records input 2, To view all users input 3")
     option = int(input("Select option: ").strip())
 
     if option == 1:
@@ -142,6 +142,8 @@ def adminPrivileges():
 
     elif option == 2:
         records.getAllPAtientRecords()
+    elif option == 3:
+        account.getAllUsers()
     else:
         print("Thank you for using the system!")
 

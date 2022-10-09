@@ -34,7 +34,7 @@ def getNumberofLines(filename = "account.csv"):
     with open(filename) as f:
         return sum(1 for line in f)
 
-def readItems():
+def readUserDetails():
     with open('account.csv', mode="r") as csv_file:  # "r" represents the read mode
         reader = csv.reader(csv_file)  # this is the reader object
 
@@ -43,5 +43,16 @@ def readItems():
             credentials[item[0]] = item[1:]
         credentials.pop("user_name")
         return  credentials
+
+def getAllUsers():
+    with open('account.csv', mode="r") as csv_file:  # "r" represents the read mode
+        reader = csv.reader(csv_file)  # this is the reader object
+
+        for item in reader:
+            if item[0] != 'user_name':
+                print("\nUserName: "+ item[0])
+                print('User_type: ' + item[2])
+                print('Privilege level: ' + item[3])
+                print('Ward No: ' + item[4])
 
 # addNewAccount("Admin", "admin", "Admin", 4, "None")
